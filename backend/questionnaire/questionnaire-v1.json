@@ -1,0 +1,36 @@
+{
+  "version": "v2",
+  "title": "心脑血管慢病风险（四高）健康调查问卷",
+  "intro": "请根据您的实际情况填写，约需 3 分钟。本人不方便时，可由家人或医护人员帮忙填写。",
+  "privacy": {
+    "version": "p1",
+    "text": "我们将收集您的姓名、手机号及健康情况，仅用于医院开展慢性病（高血压、高血糖、高血脂、高盐等）健康管理，不会向无关第三方提供。提交即表示您（或您的被代填人）已知情并同意。"
+  },
+  "fillerRelations": [
+    { "value": "SPOUSE", "label": "配偶" },
+    { "value": "CHILD", "label": "子女" },
+    { "value": "RELATIVE", "label": "其他亲属" },
+    { "value": "STAFF", "label": "医护/工作人员" },
+    { "value": "FRIEND", "label": "朋友/邻居" },
+    { "value": "OTHER", "label": "其他" }
+  ],
+  "questions": [
+    { "id": "q_org", "sourceNo": 1, "field": "org_code", "type": "org", "label": "筛选机构", "required": true, "group": "basic", "hint": "由二维码自动带入，不可修改" },
+    { "id": "q_name", "sourceNo": 5, "field": "patient_name", "type": "text", "label": "姓名", "required": true, "group": "basic", "validation": { "minLength": 2, "maxLength": 20 }, "hint": "请填写患者本人姓名" },
+    { "id": "q_gender", "sourceNo": 6, "field": "gender", "type": "single", "label": "性别", "required": true, "group": "basic", "options": [{ "value": "M", "label": "男" }, { "value": "F", "label": "女" }] },
+    { "id": "q_age", "sourceNo": 8, "field": "age", "type": "number", "label": "年龄（岁）", "required": true, "group": "basic", "unit": "岁", "validation": { "min": 1, "max": 120, "decimals": 0 } },
+    { "id": "q_phone", "sourceNo": 9, "field": "phone", "type": "tel", "label": "手机号", "required": true, "group": "basic", "validation": { "pattern": "^1[3-9]\\d{9}$" }, "hint": "请填写患者本人的手机号（11位）" },
+    { "id": "q_height", "sourceNo": 10, "field": "height_cm", "type": "number", "label": "身高（厘米）", "required": true, "group": "body", "unit": "厘米", "validation": { "min": 50, "max": 250, "decimals": 1 } },
+    { "id": "q_weight", "sourceNo": 11, "field": "weight_kg", "type": "number", "label": "体重（千克）", "required": true, "group": "body", "unit": "千克", "hint": "1 千克 = 2 斤", "validation": { "min": 10, "max": 300, "decimals": 1 } },
+    { "id": "q_bp", "sourceNo": null, "field": "bp_status", "type": "single", "label": "您的血压情况", "required": true, "group": "health", "options": [{ "value": "NORMAL", "label": "正常（高压90-120/低压60-80毫米汞柱）" }, { "value": "EARLY_HTN", "label": "早期高血压（高压121-139/低压81-89毫米汞柱）" }, { "value": "HTN", "label": "高血压病（高压≧140或/低压≧90毫米汞柱）" }, { "value": "UNKNOWN", "label": "不晓得（未测量过或测量过但不知道高不高）" }] },
+    { "id": "q_glucose", "sourceNo": 15, "field": "glucose_status", "type": "single", "label": "您的血糖情况", "required": true, "group": "health", "options": [{ "value": "NORMAL", "label": "正常（空腹血糖3.9-6.1,餐后2小时血糖≦7.8mmol/L，糖化血红蛋白<5.7%）" }, { "value": "IGT", "label": "糖耐量异常（空腹血糖6.2-6.9或餐后7.8-11mmol/L，糖化血红蛋白5.7-6.4%）" }, { "value": "DM", "label": "糖尿病(空腹血糖≧7,餐后和随机血糖≧11.1mmol/L，糖化血红蛋白≧6.5%)" }, { "value": "UNKNOWN", "label": "不晓得（未检查过或检查过但不知道血糖高不高）" }] },
+    { "id": "q_lipid", "sourceNo": 16, "field": "lipid_status", "type": "single", "label": "您的血脂情况", "required": true, "group": "health", "options": [{ "value": "NORMAL", "label": "正常" }, { "value": "HIGH", "label": "高血脂" }, { "value": "UNKNOWN", "label": "不晓得（未化验过或不知道高不高）" }] },
+    { "id": "q_salt", "sourceNo": 17, "field": "salt_status", "type": "single", "label": "你的控盐情况", "required": true, "group": "life", "options": [{ "value": "OK", "label": "达标（每人每天食盐3-5克）" }, { "value": "HIGH", "label": "高盐(>6克)" }, { "value": "UNKNOWN", "label": "不晓得（没听说过或听说过但不知道怎么减盐）" }] },
+    { "id": "q_smoking", "sourceNo": 18, "field": "smoking_status", "type": "single", "label": "您是否吸烟", "required": true, "group": "life", "options": [{ "value": "SMOKER", "label": "吸烟" }, { "value": "NON_SMOKER", "label": "不吸烟" }, { "value": "SECONDHAND", "label": "吸二手烟", "desc": "自己不吸烟，但家人在室内吸烟" }] },
+    { "id": "q_exercise", "sourceNo": 19, "field": "exercise_status", "type": "single", "label": "您的运动情况", "required": true, "group": "life", "options": [{ "value": "OK", "label": "达标（每周坚持中等强度运动≧150分钟或体力劳动者）" }, { "value": "LOW", "label": "运动少（每周运动<150分钟）" }] },
+    { "id": "q_family_cvd", "sourceNo": 20, "field": "family_cvd", "type": "single", "label": "您是否有心脑血管病家族史", "required": true, "group": "history", "options": [{ "value": "N", "label": "否" }, { "value": "Y", "label": "是" }] },
+    { "id": "q_has_cvd", "sourceNo": 21, "field": "has_cvd", "type": "single", "label": "您是否有心脑血管病（高血压、冠心病、房颤、心瓣膜病）", "required": true, "group": "history", "options": [{ "value": "Y", "label": "有" }, { "value": "N", "label": "无" }] },
+    { "id": "q_has_cerebro", "sourceNo": 22, "field": "has_cerebro", "type": "single", "label": "您是否有脑血管病（头痛、眩晕、失眠、抑郁、焦虑、认知障碍、运动障碍等）", "required": true, "group": "history", "options": [{ "value": "Y", "label": "有" }, { "value": "N", "label": "无" }] },
+    { "id": "q_has_chronic", "sourceNo": 23, "field": "has_chronic", "type": "single", "label": "您是否慢性病", "required": true, "group": "history", "options": [{ "value": "N", "label": "否" }, { "value": "Y", "label": "是（高血压、糖尿病、冠心病、脑血管病等）" }] }
+  ]
+}
